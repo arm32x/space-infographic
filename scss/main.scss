@@ -1,0 +1,319 @@
+@import 'material';
+
+body {
+    @include material-text('Body');
+
+    margin: 0px;
+    padding: 0px;
+    background-color: $dark--background-color;
+    font-family: $font-family;
+    color: $dark--secondary-text-color;
+
+    &[data-debug] * {
+        border: 1px dotted blue;
+        background-color: rgba(blue, 0.15);
+    }
+}
+
+.typography {
+    @include material-text('Body');
+
+    p {
+        margin: {
+            top: 16px;
+            right: 0px;
+            bottom: 16px;
+            left: 0px;
+        };
+    }
+
+    blockquote {
+        color: $secondary-text-color;
+        margin: {
+            top: 8px;
+            right: 0px;
+            bottom: 8px;
+            left: 8px;
+        };
+        font-style: italic;
+        border-left: 1px solid $divider-color;
+        padding: {
+            top: 8px;
+            right: 0px;
+            bottom: 8px;
+            left: 24px;
+        };
+
+        i, em {
+            font-style: normal;
+        }
+
+        p {
+            margin: {
+                top: 0px;
+                bottom: 0px;
+            }
+        }
+        
+        &.info {
+            background-color: material-color('amber', '100');
+            position: relative;
+            box-sizing: border-box;
+            border-radius: 2px;
+            border-left: none;
+            font-style: normal;
+            min-height: 40px;
+            padding: {
+                top: 12px;
+                right: 8px;
+                bottom: 12px;
+                left: 64px;
+            }
+            margin: {
+                right: 16px;
+                left: 16px;
+            }
+            
+            @media screen and (max-width: $max-mobile-size) {
+                margin: {
+                    right: 8px;
+                    left: 8px;
+                }
+            }
+            
+            &::before {
+                font-size: 24px;
+                position: absolute;
+                top: 50%;
+                left: 24px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    h1 {
+        @include material-text('Display 2');
+    }
+
+    h2 {
+        @include material-text('Display 1');
+    }
+
+    h3 {
+        @include material-text('Headline');
+    }
+
+    h4 {
+        @include material-text('Title');
+    }
+
+    h5 {
+        @include material-text('Subheading');
+    }
+
+    h6 {
+        @include material-text('Body 2');
+    }
+
+    hr {
+        margin: {
+            top: 16px;
+            right: -16px;
+            bottom: 16px;
+            left: -16px;
+        };
+        border: none;
+        border-bottom: 1px solid $divider-color;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+        margin: {
+            top: 16px;
+            right: 0px;
+            bottom: 16px;
+            left: 0px;
+        };
+
+        li {
+            margin-bottom: 4px;
+        }
+    }
+
+    a {
+        color: material-color('blue', 'a200');
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    i, em {
+        font-style: italic;
+    }
+
+    b, strong {
+        font-weight: bold;
+        
+        &.medium {
+            font-weight: 500;
+        }
+    }
+
+    code {
+        @extend .mono;
+        
+        background-color: #f5f5f5;
+        border-radius: 2px;
+        padding: 1px 4px;
+        margin: 0px 2px;
+    }
+
+    pre {
+        margin: 16px 0px;
+        white-space: pre-wrap;
+
+        code {
+            display: block;
+            font-size: 10pt;
+            padding: 8px;
+            margin: 0px;
+            overflow-x: auto;
+        }
+    }
+
+    > img {
+        border-radius: 2px;
+    }
+
+    &::selection, ::selection {
+        background-color: material-color('blue', 'a100');
+    }
+    
+    .no-margin {
+        margin: 0px;
+    }
+
+    .no-padding {
+        padding: 0px !important;
+    }
+}
+
+.mono {
+    font-family: $mono-font-family;
+}
+
+.hint {
+    color: $dark--hint-text-color;
+}
+
+.mdl-grid {
+    margin: 0px;
+    padding: 0px;
+
+    .mdl-cell {
+        margin: 8px;
+        padding: 16px;
+    }
+}
+
+.title {
+    @media (max-width: 479px) {
+        text-align: center;
+    }
+    
+    &#main-title {
+        color: $dark--primary-text-color;
+        margin: 0px;
+        margin-top: 8px;
+        
+        @media (min-width: 725px) and (max-width: 844px), (max-width: 479px) {
+            @include material-text('Display 1');
+            
+            margin-top: 15px;
+        }
+        
+        @media (min-width: 531px) and (max-width: 724px)  {
+            @include material-text('Headline');
+            
+            margin-top: 24px;
+        }
+        
+        @media (min-width: 480px) and (max-width: 530px) {
+            @include material-text('Title');
+            
+            margin-top: 29px;
+        }
+    }
+    
+    &#subtitle {
+        margin: 0px;
+        
+        @media (min-width: 725px) and (max-width: 844px) {
+            margin-bottom: 6px;
+        }
+        
+        @media (min-width: 531px) and (max-width: 724px) {
+            @include material-text('Title');
+            
+            margin-bottom: 13px;
+        }
+        
+        @media (min-width: 480px) and (max-width: 530px) {
+            @include material-text('Subheading');
+            
+            margin-bottom: 17px;
+        }
+        
+        @media (max-width: 479px) {
+            @include material-text('Title');
+            
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.fill {
+    width: 100%;
+    
+    &.force {
+        height: 100%;
+        object-fit: cover;
+        
+        .card > & {
+            height: calc(100% + 32px);
+        }
+    }
+
+    .card > & {
+        width: calc(100% + 32px);
+        margin: -16px;
+        margin-bottom: -20px;
+        border-radius: 2px;
+    }
+}
+
+.card {
+    @include material-elevation(2);
+
+    color: $dark--primary-text-color;
+    background-color: $dark--card-color;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.aspect-16-9 {
+    width: 100%;
+    height: 0px;
+    padding: 0px;
+    padding-top: 56.25% !important;
+    
+    .fill {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+}
